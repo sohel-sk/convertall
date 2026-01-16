@@ -13,21 +13,39 @@ class _ConvertallCurrencyConvertorCupertinoPageState extends State<ConvertallCur
   double result = 0;
 
   final TextEditingController amountController = TextEditingController();
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    amountController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
-
-    return  CupertinoPageScaffold(
+    return  CupertinoPageScaffold( // Scaffold widget
+      // TopBar of the Page    
       navigationBar: CupertinoNavigationBar(
         middle: const Text('ConvertAll Currency Convertor'),
       ),
+
+      // Body of the Page 
       child: Container(
         alignment: Alignment.center,
         // color: Color.fromARGB(255, 27, 229, 244),
         padding: const EdgeInsets.all(20),
+
+        // Main Body of the Page
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Result Display
             Container(
               margin: const EdgeInsets.only(bottom: 20),
               child: Text(
@@ -35,6 +53,8 @@ class _ConvertallCurrencyConvertorCupertinoPageState extends State<ConvertallCur
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
             ),
+
+            // Input Text Feild
             CupertinoTextField(
               keyboardType: TextInputType.number,
               controller: amountController,
@@ -45,6 +65,7 @@ class _ConvertallCurrencyConvertorCupertinoPageState extends State<ConvertallCur
               placeholder: 'Enter amount in USD',
               prefix: Icon(CupertinoIcons.money_dollar_circle),
             ),
+            // Convert Button 
             Container(
               margin: const EdgeInsets.only(top: 20),
               child: CupertinoButton(
