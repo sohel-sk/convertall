@@ -44,7 +44,7 @@ class _ConvertAllCurrencyConvertorPageState
             Container(
               margin: const EdgeInsets.only(bottom: 20),
               child: Text(
-                'INR ${result.toString()}',
+                'INR ${result!= 0? result.toStringAsFixed(3):result.toStringAsFixed(0)}',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
             ),
